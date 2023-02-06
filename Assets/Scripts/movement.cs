@@ -25,19 +25,11 @@ public class movement : MonoBehaviour
 
         }
 
-    
-
-
         transform.position += new Vector3(Hori * sprintspeed * Time.deltaTime,0f,0f); // player momentum movemnt
-     
-
+        
         playerAnimator.SetFloat("sprintspeed", Mathf.Abs(Hori));
         
     }
-
-
-
-
 
     
 }
