@@ -11,22 +11,29 @@ public class movement : MonoBehaviour
     private void Update()
     {
 
-        float input = Input.GetAxisRaw("Horizontal");
+        float Hori = Input.GetAxisRaw("Horizontal");
+        float Vert = Input.GetAxisRaw("Vertical");
 
-        if (input > 0)
+        if (Hori > 0)
         {
 
-            transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(0f, 90f, 0f), Time.deltaTime * 20f);
+            transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(0f, 90f, 0f), Time.deltaTime * 20f); //Rotate player 90 degrees left
         }
-        else if(input < 0)
+        else if(Hori < 0)
         {
-            transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(0f, 260f, 0f), Time.deltaTime * 20f);
+            transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(0f, 260f, 0f), Time.deltaTime * 20f); //Rotate player 90 degrees left
 
         }
-        transform.position += new Vector3(input * sprintspeed * Time.deltaTime,0f,0f);
 
-        playerAnimator.SetFloat("sprintspeed", Mathf.Abs(input));
-        }
+    
+
+
+        transform.position += new Vector3(Hori * sprintspeed * Time.deltaTime,0f,0f); // player momentum movemnt
+     
+
+        playerAnimator.SetFloat("sprintspeed", Mathf.Abs(Hori));
+        
+    }
 
 
 
